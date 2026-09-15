@@ -62,7 +62,13 @@ fetch("news.json")
 // devlogs
 
 fetch("devlogs.json")
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("devlogs.json didt load ):");
+        }
+
+        return response.json();
+    })
     .then(devlogs => {
 
         const container = document.querySelector("#devlogs > div");
@@ -72,14 +78,32 @@ fetch("devlogs.json")
             const article = document.createElement("article");
 
             article.innerHTML = `
-                <h3>${devlog.title}</h3>
-                <p>${devlog.date}</p>
-                <p>${devlog.text}</p>
+                <button class="devlog-button" type="button">
+                    <span>${devlog.title}</span>
+                    <span class="devlog-arrow">+</span>
+                </button>
+
+                <div class="devlog-content">
+                    <p>${devlog.date}</p>
+                    <p>${devlog.text}</p>
+                </div>
             `;
+
+            const button = article.querySelector(".devlog-button");
+            const content = article.querySelector(".devlog-content");
+            const arrow = article.querySelector(".devlog-arrow");
+
+            button.addEventListener("click", () => {
+
+                const isOpen = content.classList.contains("open");
+
+                content.classList.toggle("open");
+                arrow.textContent = isOpen ? "+" : "−";
+            });
 
             container.appendChild(article);
         });
     })
     .catch(error => {
-        console.error("Could not load devlogs.json:", error);
+        console.error("Devlogs:", error);
     });
