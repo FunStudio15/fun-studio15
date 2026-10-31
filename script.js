@@ -111,7 +111,7 @@ fetch("devlogs.json")
 
 // analytics
 
-fetch("https://fun-studio15.funstudio15rblx.workers.dev", {
+fetch("https://funstudio15-analytics.funstudio15rblx.workers.dev", {
     method: "POST",
     headers: {
         "Content-Type": "text/plain"
