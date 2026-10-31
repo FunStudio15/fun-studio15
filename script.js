@@ -107,6 +107,10 @@ fetch("devlogs.json")
     .catch(error => {
         console.error("Devlogs:", error);
     });
+
+
+// analytics
+
 fetch("https://fun-studio15.funstudio15rblx.workers.dev", {
     method: "POST",
     headers: {
@@ -118,11 +122,16 @@ fetch("https://fun-studio15.funstudio15rblx.workers.dev", {
     keepalive: true
 })
 .then(async response => {
+
+    const result = await response.text();
+
+    console.log("Analytics HTTP:", response.status);
+    console.log("Analytics Response:", result);
+
     if (!response.ok) {
-        throw new Error(`${response.status}: ${await response.text()}`);
+        throw new Error(`${response.status}: ${result}`);
     }
-    console.log("Analytics sent");
 })
 .catch(error => {
-    console.error("Analytics error:", error);
+    console.error("Analytics error:", error.name, error.message);
 });
