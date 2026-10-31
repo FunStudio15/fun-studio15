@@ -113,27 +113,31 @@ fetch("devlogs.json")
 
 // analytics
 
-fetch("https://funstudio15-analytics.funstudio15rblx.workers.dev", {
-    method: "POST",
-    headers: {
-        "Content-Type": "text/plain"
-    },
-    body: JSON.stringify({
-        page: window.location.pathname
-    }),
-    keepalive: true
-})
-.then(async response => {
+if (ANALYTICS_ENABLED) {
 
-    const result = await response.text();
+    fetch("https://funstudio15-analytics.funstudio15rblx.workers.dev", {
+        method: "POST",
+        headers: {
+            "Content-Type": "text/plain"
+        },
+        body: JSON.stringify({
+            page: window.location.pathname
+        }),
+        keepalive: true
+    })
+    .then(async response => {
 
-    console.log("Analytics HTTP:", response.status);
-    console.log("Analytics Response:", result);
+        const result = await response.text();
 
-    if (!response.ok) {
-        throw new Error(`${response.status}: ${result}`);
-    }
-})
-.catch(error => {
-    console.error("Analytics error:", error.name, error.message);
-});
+        console.log("Analytics HTTP:", response.status);
+        console.log("Analytics Response:", result);
+
+        if (!response.ok) {
+            throw new Error(`${response.status}: ${result}`);
+        }
+    })
+    .catch(error => {
+        console.error("Analytics error:", error.name, error.message);
+    });
+
+}
