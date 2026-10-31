@@ -1,3 +1,4 @@
+
 :root {
     --color-background: #504c49;
     --color-background-dark: #000000;
@@ -142,6 +143,16 @@ h3 {
 p {
     margin: 0 0 16px;
     max-width: 720px;
+}
+
+/* INTRO TEXT */
+
+main > section:first-child p {
+    max-width: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 a {
