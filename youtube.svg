@@ -1,5 +1,49 @@
-<a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" width="25" height="25" fill="#ffffff">
-    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-  </svg>
-</a>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="528.70667"
+   height="370.37332"
+   viewBox="0 0 528.70667 370.37332"
+   sodipodi:docname="yt_icon_almostblack_digital.eps"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:page
+       x="0"
+       y="0"
+       inkscape:label="1"
+       id="page1"
+       width="528.70667"
+       height="370.37332"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <g
+     id="g1"
+     inkscape:groupmode="layer"
+     inkscape:label="1">
+    <g
+       id="group-R5">
+      <path
+         id="path2"
+         d="M 1587.28,793.648 V 1984.11 L 2615.56,1390.33 Z M 3881.34,2343.28 c -46.36,170.89 -176.7,304.14 -350.49,350.48 -307.03,84 -1549.64,84 -1549.64,84 0,0 -1239.702,0 -1546.73,-84 C 263.578,2647.42 130.34,2514.17 81.1016,2343.28 0,2036.25 0,1390.33 0,1390.33 0,1390.33 0,744.41 81.1016,434.48 130.34,266.48 263.578,130.352 434.48,84 741.508,0 1981.21,0 1981.21,0 c 0,0 1242.61,0 1549.64,84 173.79,46.352 304.13,182.48 350.49,350.48 83.98,309.93 83.98,955.85 83.98,955.85 0,0 0,645.92 -83.98,952.95"
+         style="fill:#201e1d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(0.13333333,0,0,-0.13333333,0,370.37333)" />
+    </g>
+  </g>
+</svg>
