@@ -107,3 +107,22 @@ fetch("devlogs.json")
     .catch(error => {
         console.error("Devlogs:", error);
     });
+fetch("https://fun-studio15.funstudio15rblx.workers.dev", {
+    method: "POST",
+    headers: {
+        "Content-Type": "text/plain"
+    },
+    body: JSON.stringify({
+        page: window.location.pathname
+    }),
+    keepalive: true
+})
+.then(async response => {
+    if (!response.ok) {
+        throw new Error(`${response.status}: ${await response.text()}`);
+    }
+    console.log("Analytics sent");
+})
+.catch(error => {
+    console.error("Analytics error:", error);
+});
