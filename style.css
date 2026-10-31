@@ -1,3 +1,26 @@
+:root {
+    --color-background: #504c49;
+    --color-background-dark: #000000;
+
+    --color-text: #cdcac7;
+    --color-text-muted: #b3a080;
+
+    --color-heading: #e8c99b;
+    --color-accent: #d0b58a;
+    --color-accent-light: #e8c99b;
+    --color-accent-dark: #9e8f72;
+
+    --color-brown: #8e7e67;
+    --color-brown-dark: #6e665b;
+
+    --color-gray: #7f7f7f;
+
+    --color-border: rgba(205, 202, 199, 0.20);
+    --color-border-subtle: rgba(179, 160, 128, 0.25);
+}
+
+/* GLOBAL */
+
 * {
     box-sizing: border-box;
 }
@@ -10,8 +33,8 @@ body {
     margin: 0;
     padding: 0 24px;
 
-    background: hsl(205, 55%, 8%);
-    color: hsl(196, 67%, 55%);
+    background: var(--color-background);
+    color: var(--color-text);
 
     font-family: "Fira Sans", sans-serif;
     font-weight: 500;
@@ -25,7 +48,7 @@ header {
     margin: 32px auto 0;
     padding: 0 0 24px;
 
-    border-bottom: 1px solid hsl(196, 30%, 25%);
+    border-bottom: 1px solid var(--color-border);
 
     text-align: center;
 }
@@ -49,7 +72,7 @@ header > a img {
 header h1 {
     margin: 0;
 
-    color: hsl(196, 85%, 82%);
+    color: var(--color-heading);
 
     font-family: "Space Grotesk", sans-serif;
     font-size: 64px;
@@ -67,12 +90,14 @@ nav {
 }
 
 nav a {
-    color: hsl(196, 67%, 55%);
+    color: var(--color-accent-light);
     text-decoration: none;
+
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
-    color: hsl(196, 90%, 88%);
+    color: var(--color-text);
 }
 
 /* MAIN */
@@ -85,7 +110,7 @@ main {
 section {
     padding: 42px 0;
 
-    border-bottom: 1px solid hsl(196, 30%, 25%);
+    border-bottom: 1px solid var(--color-border);
 }
 
 section:first-child {
@@ -95,7 +120,7 @@ section:first-child {
 h2 {
     margin: 0 0 24px;
 
-    color: hsl(196, 85%, 82%);
+    color: var(--color-heading);
 
     font-family: "Space Grotesk", sans-serif;
     font-size: 34px;
@@ -106,7 +131,7 @@ h2 {
 h3 {
     margin: 0;
 
-    color: hsl(196, 82%, 78%);
+    color: var(--color-accent);
 
     font-family: "Space Grotesk", sans-serif;
     font-size: 22px;
@@ -120,12 +145,14 @@ p {
 }
 
 a {
-    color: hsl(196, 75%, 65%);
+    color: var(--color-accent-light);
     text-decoration: none;
+
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: hsl(196, 90%, 88%);
+    color: var(--color-text);
 }
 
 /* PROJECTS / NEWS */
@@ -133,7 +160,7 @@ a:hover {
 article {
     padding: 18px 0;
 
-    border-top: 1px solid hsl(196, 24%, 21%);
+    border-top: 1px solid var(--color-border-subtle);
 }
 
 article:first-child {
@@ -164,7 +191,7 @@ article a {
     border: 0;
     background: transparent;
 
-    color: hsl(196, 82%, 78%);
+    color: var(--color-accent);
 
     font-family: "Space Grotesk", sans-serif;
     font-size: 22px;
@@ -172,14 +199,18 @@ article a {
 
     text-align: left;
     cursor: pointer;
+
+    transition: color 0.2s ease;
 }
 
 .devlog-button:hover {
-    color: hsl(196, 90%, 90%);
+    color: var(--color-heading);
 }
 
 .devlog-arrow {
     margin-left: 20px;
+
+    color: var(--color-text-muted);
 
     font-size: 20px;
     font-weight: 500;
@@ -195,6 +226,8 @@ article a {
     display: block;
 }
 
+/* SOCIALS */
+
 .socials img {
     width: 32px;
     height: 32px;
@@ -207,13 +240,26 @@ footer {
     margin: 0 auto;
     padding: 28px 0 40px;
 
-    color: hsl(196, 35%, 42%);
+    color: var(--color-text-muted);
 
     text-align: center;
 }
 
 footer p {
     margin: 0 auto;
+}
+
+/* INTERACTION / ACCESSIBILITY */
+
+::selection {
+    background: var(--color-heading);
+    color: var(--color-background-dark);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-heading);
+    outline-offset: 4px;
 }
 
 /* MOBILE */
@@ -246,5 +292,19 @@ footer p {
 
     .devlog-button {
         font-size: 19px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
     }
 }
