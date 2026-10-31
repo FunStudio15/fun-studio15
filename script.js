@@ -1,3 +1,5 @@
+const ANALYTICS_ENABLED = false;
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 
