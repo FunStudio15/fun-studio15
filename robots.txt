@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /white%20sheep.html
+Disallow: /white sheep.html
