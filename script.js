@@ -1,15 +1,29 @@
 const ANALYTICS_ENABLED = false;
 
+function setStatus(container, message) {
+    const status = document.createElement("p");
+    status.textContent = message;
+    container.replaceChildren(status);
+}
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 
 // projects
 
+const projectsContainer = document.querySelector("#projects > div");
+setStatus(projectsContainer, "Loading projects…");
+
 fetch("projects.json")
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Could not load projects.json: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(projects => {
 
-        const container = document.querySelector("#projects > div");
+        projectsContainer.replaceChildren();
 
         projects.forEach(project => {
 
@@ -27,21 +41,30 @@ fetch("projects.json")
                 </a>
             `;
 
-            container.appendChild(article);
+            projectsContainer.appendChild(article);
         });
     })
     .catch(error => {
         console.error("Could not load projects.json:", error);
+        setStatus(projectsContainer, "Projects could not be loaded. Please try again later.");
     });
 
 
 // news
 
+const newsContainer = document.querySelector("#news > div");
+setStatus(newsContainer, "Loading news…");
+
 fetch("news.json")
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Could not load news.json: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(news => {
 
-        const container = document.querySelector("#news > div");
+        newsContainer.replaceChildren();
 
         news.forEach(item => {
 
@@ -53,27 +76,31 @@ fetch("news.json")
                 <p>${item.text}</p>
             `;
 
-            container.appendChild(article);
+            newsContainer.appendChild(article);
         });
     })
     .catch(error => {
         console.error("Could not load news.json:", error);
+        setStatus(newsContainer, "News could not be loaded. Please try again later.");
     });
 
 
 // devlogs
 
+const devlogsContainer = document.querySelector("#devlogs > div");
+setStatus(devlogsContainer, "Loading devlogs…");
+
 fetch("devlogs.json")
     .then(response => {
         if (!response.ok) {
-            throw new Error("devlogs.json didt load ):");
+            throw new Error("devlogs.json did not load");
         }
 
         return response.json();
     })
     .then(devlogs => {
 
-        const container = document.querySelector("#devlogs > div");
+        devlogsContainer.replaceChildren();
 
         devlogs.forEach(devlog => {
 
@@ -103,11 +130,12 @@ fetch("devlogs.json")
                 arrow.textContent = isOpen ? "+" : "−";
             });
 
-            container.appendChild(article);
+            devlogsContainer.appendChild(article);
         });
     })
     .catch(error => {
         console.error("Devlogs:", error);
+        setStatus(devlogsContainer, "Devlogs could not be loaded. Please try again later.");
     });
 
 
